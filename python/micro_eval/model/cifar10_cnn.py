@@ -223,7 +223,7 @@ class Cifar10Cnn(TunableModel):
         opts = tvm.micro.default_options(os.path.join(util.get_zephyr_project_root(), 'crt'))
         opts['lib_opts']['include_dirs'] += INCLUDE_PATHS
 #        opts['bin_opts']['include_dirs'] += INCLUDE_PATHS
-        opts['generated_lib_opts'] = copy.copy(tvm.micro.build._CRT_GENERATED_LIB_OPTIONS)
+#       opts['generated_lib_opts'] = copy.copy(tvm.micro.build._CRT_GENERATED_LIB_OPTIONS)
         opts['generated_lib_opts']['include_dirs'] += INCLUDE_PATHS
         opts['generated_lib_opts']['cflags'] += ['-Wno-error=strict-aliasing']
         return opts
