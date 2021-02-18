@@ -153,6 +153,18 @@ the approach from point 2 above, and set a breakpoint at `TVMFuncCall` or the fu
 
 ## Running autotuning on STM32F746 Discovery board
 
+TL;DR:
+
+```shell
+$ git clone --recursive git@github.com:gromero/microtvm-blogpost-eval.git --branch disco_board
+$ cd disco_board
+$ export PYTHONPATH=$PYTHONPATH:$PWD/python:<home_dir>/git/tvm/python
+$ source $HOME/zephyrproject/zephyr/zephyr-env.sh
+$ python3 -m micro_eval.bin.eval --zephyr-board=stm32f746g_disco cifar10_cnn:micro_dev:data/cifar10-config-validate.json --validate-against=cifar10_cnn:interp:data/cifar10-config-validate.json
+```
+
+which amounts to:
+
 1. Clone everything (do not forget `--recursive` to clone submodules)
 2. Clone TVM and build it
 3. Make TVM Python API and `micro_eval.bin.eval` script available by setting `PYTHONPATH`, like:
