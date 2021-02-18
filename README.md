@@ -151,7 +151,7 @@ happen for several reasons:
 If the RPC server times out later on, it's likely there's been a fault in operator execution. Use
 the approach from point 2 above, and set a breakpoint at `TVMFuncCall` or the function in question.
 
-## Running autotunning on STM32F746 Discovery board
+## Running autotuning on STM32F746 Discovery board
 
 1. Clone everything (do not forget `--recursive` to clone submodules)
 2. Clone TVM and build it
