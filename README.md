@@ -150,3 +150,25 @@ happen for several reasons:
 
 If the RPC server times out later on, it's likely there's been a fault in operator execution. Use
 the approach from point 2 above, and set a breakpoint at `TVMFuncCall` or the function in question.
+
+## Running autotunning on STM32F746 Discovery board
+
+1. Clone everything (do not forget `--recursive` to clone submodules)
+2. Clone TVM and build it
+3. Make TVM Python API and `micro_eval.bin.eval` script available by setting `PYTHONPATH`, like:
+```
+gromero@gromero0:~/git/microtvm-blogpost-eval$ env | fgrep -i PYTHON
+PYTHONPATH=/home/gromero/git/tvm/python::/home/gromero/git/microtvm-blogpost-eval/python
+```
+4. Clone Zephyr and set `ZEPHYR_BASE` so Zephyr's SDK can be found by the TVM Python API, like:
+```
+gromero@gromero0:~/git/microtvm-blogpost-eval$ env | fgrep -i ZEPHYR
+ZEPHYR_BASE=/home/gromero/zephyrproject/zephyr
+PATH=/home/gromero/zephyrproject/zephyr/scripts:/home/gromero/.local/bin:/home/gromero/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+5. Run `micro_eval.bin.eval` passing `--zephyr-board=stm32f746g_disco`:
+```
+gromero@gromero0:~/git/microtvm-blogpost-eval$ python3 -m micro_eval.bin.eval --zephyr-board=stm32f746g_disco cifar10_cnn:micro_dev:data/cifar10-config-validate.json --validate-against=cifar10_cnn:interp:data/cifar10-config-validate.json
+```
+
+If it succeeds, you must see an output like [this one](output_example.txt).

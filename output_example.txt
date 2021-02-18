@@ -1,0 +1,215 @@
+gromero@gromero0:~/git/microtvm-blogpost-eval$ python3 -m micro_eval.bin.eval --zephyr-board=stm32f746g_disco cifar10_cnn:micro_dev:data/cifar10-config-validate.json --validate-against=cifar10_cnn:interp:data/cifar10-config-validate.json
+2021-02-18 13:46:27.526 INFO log_util.py:97 Logging started for process: ['/home/gromero/git/microtvm-blogpost-eval/python/micro_eval/bin/eval.py', '--zephyr-board=stm32f746g_disco', 'cifar10_cnn:micro_dev:data/cifar10-config-validate.json', '--validate-against=cifar10_cnn:interp:data/cifar10-config-validate.json']
+/home/gromero/git/tvm/python/tvm/target/target.py:469: UserWarning: tvm.target.create() is being deprecated. Please use tvm.target.Target() instead
+  warnings.warn("tvm.target.create() is being deprecated. Please use tvm.target.Target() instead")
+2021-02-18 13:46:27.809 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:27.869 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:27.900 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:27.922 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:27.946 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:27.964 INFO compile_engine.py:257 Using injective.cpu for left_shift based on highest priority (10)
+2021-02-18 13:46:27.985 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.026 WARNING compile_engine.py:256 Cannot find config for target=c -keys=arm_cpu,cpu -link-params=1 -mcpu=cortex-m7 -model=stm32f746xx -runtime=c -system-lib=1, workload=('conv2d_direct_simd.arm_cpu', ('TENSOR', (1, 32, 32, 4), 'int8'), ('TENSOR', (5, 5, 32, 4), 'int8'), (1, 1), (2, 2), (1, 1), 'int32'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:46:28.026 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.031 WARNING compile_engine.py:256 Cannot find config for target=c -keys=arm_cpu,cpu -link-params=1 -mcpu=cortex-m7 -model=stm32f746xx -runtime=c -system-lib=1, workload=('conv2d_direct_simd.arm_cpu', ('TENSOR', (1, 16, 16, 32), 'int8'), ('TENSOR', (5, 5, 32, 32), 'int8'), (1, 1), (2, 2), (1, 1), 'int32'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:46:28.031 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.036 WARNING compile_engine.py:256 Cannot find config for target=c -keys=arm_cpu,cpu -link-params=1 -mcpu=cortex-m7 -model=stm32f746xx -runtime=c -system-lib=1, workload=('conv2d_direct_simd.arm_cpu', ('TENSOR', (1, 8, 8, 32), 'int8'), ('TENSOR', (5, 5, 64, 32), 'int8'), (1, 1), (2, 2), (1, 1), 'int32'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:46:28.036 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.043 WARNING compile_engine.py:256 Cannot find config for target=c -keys=arm_cpu,cpu -link-params=1 -mcpu=cortex-m7 -model=stm32f746xx -runtime=c -system-lib=1, workload=('dense_pack.x86', ('TENSOR', (1, 1024), 'int16'), ('TENSOR', (10, 1024), 'int8'), None, 'int16'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:46:28.043 INFO compile_engine.py:257 Using dense_pack.x86 for nn.dense based on highest priority (10)
+2021-02-18 13:46:28.052 INFO compile_engine.py:257 Using injective.cpu for expand_dims based on highest priority (10)
+2021-02-18 13:46:28.077 INFO compile_engine.py:257 Using injective.cpu for expand_dims based on highest priority (10)
+2021-02-18 13:46:28.102 INFO compile_engine.py:257 Using injective.cpu for expand_dims based on highest priority (10)
+2021-02-18 13:46:28.125 INFO compile_engine.py:257 Using injective.cpu for layout_transform based on highest priority (10)
+2021-02-18 13:46:28.159 WARNING compile_engine.py:256 Cannot find config for target=c -keys=arm_cpu,cpu -link-params=1 -mcpu=cortex-m7 -model=stm32f746xx -runtime=c -system-lib=1, workload=('dense_pack.x86', ('TENSOR', (1, 1024), 'int16'), ('TENSOR', (1, 1024, 10), 'int8'), None, 'int16'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:46:28.159 INFO compile_engine.py:257 Using dense_pack.x86 for nn.contrib_dense_pack based on highest priority (10)
+2021-02-18 13:46:28.162 INFO compile_engine.py:257 Using injective.arm_cpu for add based on highest priority (10)
+2021-02-18 13:46:28.165 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.168 INFO compile_engine.py:257 Using injective.arm_cpu for right_shift based on highest priority (10)
+2021-02-18 13:46:28.171 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.179 INFO compile_engine.py:257 Using injective.arm_cpu for nn.batch_flatten based on highest priority (10)
+2021-02-18 13:46:28.183 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.193 INFO compile_engine.py:257 Using pool.cpu for nn.avg_pool2d based on highest priority (10)
+2021-02-18 13:46:28.198 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.209 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.215 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.222 INFO compile_engine.py:257 Using injective.arm_cpu for add based on highest priority (10)
+2021-02-18 13:46:28.228 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.233 INFO compile_engine.py:257 Using injective.arm_cpu for right_shift based on highest priority (10)
+2021-02-18 13:46:28.239 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.245 INFO compile_engine.py:257 Using injective.arm_cpu for nn.relu based on highest priority (10)
+2021-02-18 13:46:28.253 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.258 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.272 INFO compile_engine.py:257 Using pool.cpu for nn.avg_pool2d based on highest priority (10)
+2021-02-18 13:46:28.277 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.291 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.297 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.302 INFO compile_engine.py:257 Using injective.arm_cpu for add based on highest priority (10)
+2021-02-18 13:46:28.307 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.316 INFO compile_engine.py:257 Using injective.arm_cpu for right_shift based on highest priority (10)
+2021-02-18 13:46:28.321 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.326 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.332 INFO compile_engine.py:257 Using injective.arm_cpu for nn.relu based on highest priority (10)
+2021-02-18 13:46:28.338 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.346 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.360 INFO compile_engine.py:257 Using pool.cpu for nn.max_pool2d based on highest priority (10)
+2021-02-18 13:46:28.366 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.371 INFO compile_engine.py:257 Using injective.arm_cpu for nn.relu based on highest priority (10)
+2021-02-18 13:46:28.378 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.390 INFO compile_engine.py:257 Using conv2d_direct_simd.micro_dev for nn.conv2d based on highest priority (10)
+2021-02-18 13:46:28.396 INFO compile_engine.py:257 Using injective.arm_cpu for add based on highest priority (10)
+2021-02-18 13:46:28.402 INFO compile_engine.py:257 Using injective.arm_cpu for right_shift based on highest priority (10)
+2021-02-18 13:46:28.410 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.423 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+2021-02-18 13:46:28.428 INFO compile_engine.py:257 Using injective.arm_cpu for subtract based on highest priority (10)
+2021-02-18 13:46:28.433 INFO compile_engine.py:257 Using injective.arm_cpu for cast based on highest priority (10)
+lowered Module(c, 384df38)
+2021-02-18 13:46:28.457 INFO build.py:41 Created debug mode workspace at: /home/gromero/git/microtvm-blogpost-eval/workspace/builds/2021-02-18T13-46-28
+Including boilerplate (Zephyr base): /home/gromero/zephyrproject/zephyr/cmake/app/boilerplate.cmake
+Including boilerplate (Zephyr base): /home/gromero/zephyrproject/zephyr/cmake/app/boilerplate.cmake
+Including boilerplate (Zephyr base): /home/gromero/zephyrproject/zephyr/cmake/app/boilerplate.cmake
+Including boilerplate (Zephyr base): /home/gromero/zephyrproject/zephyr/cmake/app/boilerplate.cmake
+Including boilerplate (Zephyr base): /home/gromero/zephyrproject/zephyr/cmake/app/boilerplate.cmake
+2021-02-18 13:46:56.581 INFO zephyr.py:213 Memory region         Used Size  Region Size  %age Used
+2021-02-18 13:46:56.581 INFO zephyr.py:214 --------------------- ---------- ------------ ---------
+2021-02-18 13:46:56.581 INFO zephyr.py:219            FLASH:      138668 B         1 MB     13.22%
+2021-02-18 13:46:56.581 INFO zephyr.py:219             DTCM:          0 GB        64 KB      0.00%
+2021-02-18 13:46:56.582 INFO zephyr.py:219             SRAM:      257392 B       256 KB     98.19%
+2021-02-18 13:46:56.582 INFO zephyr.py:219         IDT_LIST:         248 B         2 KB     12.11%
+2021-02-18 13:46:56.582 INFO zephyr.py:219 make[2]: Leaving directory '/home/gromero/git/microtvm-blogpost-eval/workspace/builds/2021-02-18T13-46-28/build/runtime'
+Open On-Chip Debugger 0.10.0+dev-01341-g580d06d9d-dirty (2020-06-25-12:07)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+066CFF485153826687133653
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+Info : clock speed 2000 kHz
+Info : STLINK V2J25M14 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.231558
+Warn : Silicon bug: single stepping may enter pending exception handler!
+Info : stm32f7x.cpu: hardware has 8 breakpoints, 4 watchpoints
+Info : Listening on port 3333 for gdb connections
+    TargetName         Type       Endian TapName            State       
+--  ------------------ ---------- ------ ------------------ ------------
+ 0* stm32f7x.cpu       hla_target little stm32f7x.cpu       running
+
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08001f10 msp: 0x2004e430
+Info : device id = 0x10016449
+Info : flash size = 1024 kbytes
+auto erase enabled
+wrote 262144 bytes from file /home/gromero/git/microtvm-blogpost-eval/workspace/builds/2021-02-18T13-46-28/build/runtime/zephyr/zephyr.hex in 6.776341s (37.778 KiB/s)
+
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x08001f10 msp: 0x2004e430
+verified 138668 bytes in 0.897507s (150.882 KiB/s)
+
+shutdown command invoked
+2021-02-18 13:47:09.156 INFO eval.py:266 got prediction: {'label': array([  4, -21,  17,  22,  18,   4,   7, -13,  -8, -13], dtype=int8)}
+2021-02-18 13:47:10.497 INFO eval.py:266 got prediction: {'label': array([  2, -19,  17,  21,  20,   3,   4,  -6,  17, -16], dtype=int8)}
+2021-02-18 13:47:11.833 INFO eval.py:266 got prediction: {'label': array([ -4, -23,   7,   7,  18,  -2,   2,  -2,   2,  -9], dtype=int8)}
+2021-02-18 13:47:13.189 INFO eval.py:266 got prediction: {'label': array([ -1, -21,   1,   4,  11, -15,   5,   4, -17, -24], dtype=int8)}
+2021-02-18 13:47:14.539 INFO eval.py:266 got prediction: {'label': array([ -6, -27,   5,   4,  24,   3,   3,  -4,  -5, -14], dtype=int8)}
+2021-02-18 13:47:15.889 INFO eval.py:266 got prediction: {'label': array([-10, -26,   8,  10,  13, -11,  -8, -12, -14, -22], dtype=int8)}
+2021-02-18 13:47:17.232 INFO eval.py:266 got prediction: {'label': array([ -1, -32,  15,  12,  17,  -8,  -5, -10,   5, -16], dtype=int8)}
+2021-02-18 13:47:18.577 INFO eval.py:266 got prediction: {'label': array([  1, -15,  15,   8,  15,  -6,  -1,  -6,  -8, -19], dtype=int8)}
+2021-02-18 13:47:19.909 INFO eval.py:266 got prediction: {'label': array([  6, -10,  11,   6,  27,   0,  -2, -16, -15,  -6], dtype=int8)}
+2021-02-18 13:47:21.277 INFO eval.py:266 got prediction: {'label': array([ -7, -21,  14,   2,  16,  -3,  -5, -15,  -3, -17], dtype=int8)}
+2021-02-18 13:47:21.379 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:21.451 INFO compile_engine.py:257 Using injective.cpu for subtract based on highest priority (10)
+2021-02-18 13:47:21.606 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:21.664 WARNING x86.py:123 conv2d NHWC layout is not optimized for x86 with autotvm.
+2021-02-18 13:47:21.667 INFO compile_engine.py:257 Using conv2d_nhwc.x86 for nn.conv2d based on highest priority (10)
+2021-02-18 13:47:21.734 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:21.760 INFO compile_engine.py:257 Using injective.cpu for nn.bias_add based on highest priority (10)
+2021-02-18 13:47:21.797 INFO compile_engine.py:257 Using injective.cpu for right_shift based on highest priority (10)
+2021-02-18 13:47:21.832 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:21.868 INFO compile_engine.py:257 Using pool.cpu for nn.max_pool2d based on highest priority (10)
+2021-02-18 13:47:21.915 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:21.977 INFO compile_engine.py:257 Using injective.cpu for nn.relu based on highest priority (10)
+2021-02-18 13:47:22.042 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.105 WARNING x86.py:123 conv2d NHWC layout is not optimized for x86 with autotvm.
+2021-02-18 13:47:22.108 INFO compile_engine.py:257 Using conv2d_nhwc.x86 for nn.conv2d based on highest priority (10)
+2021-02-18 13:47:22.203 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.269 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.295 INFO compile_engine.py:257 Using injective.cpu for nn.bias_add based on highest priority (10)
+2021-02-18 13:47:22.365 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.435 INFO compile_engine.py:257 Using injective.cpu for right_shift based on highest priority (10)
+2021-02-18 13:47:22.507 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.578 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.644 INFO compile_engine.py:257 Using pool.cpu for nn.avg_pool2d based on highest priority (10)
+2021-02-18 13:47:22.803 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:22.849 WARNING x86.py:123 conv2d NHWC layout is not optimized for x86 with autotvm.
+2021-02-18 13:47:22.852 INFO compile_engine.py:257 Using conv2d_nhwc.x86 for nn.conv2d based on highest priority (10)
+2021-02-18 13:47:22.954 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.021 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.048 INFO compile_engine.py:257 Using injective.cpu for nn.bias_add based on highest priority (10)
+2021-02-18 13:47:23.129 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.197 INFO compile_engine.py:257 Using injective.cpu for right_shift based on highest priority (10)
+2021-02-18 13:47:23.270 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.341 INFO compile_engine.py:257 Using injective.cpu for nn.relu based on highest priority (10)
+2021-02-18 13:47:23.402 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.465 INFO compile_engine.py:257 Using pool.cpu for nn.avg_pool2d based on highest priority (10)
+2021-02-18 13:47:23.566 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.610 INFO compile_engine.py:257 Using injective.cpu for nn.batch_flatten based on highest priority (10)
+2021-02-18 13:47:23.633 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.655 WARNING compile_engine.py:256 Cannot find config for target=llvm -keys=cpu -link-params=0, workload=('dense_pack.x86', ('TENSOR', (1, 1024), 'int16'), ('TENSOR', (10, 1024), 'int8'), None, 'int16'). A fallback configuration is used, which may bring great performance regression.
+2021-02-18 13:47:23.655 INFO compile_engine.py:257 Using dense_pack.x86 for nn.dense based on highest priority (10)
+2021-02-18 13:47:23.693 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.710 INFO compile_engine.py:257 Using injective.cpu for left_shift based on highest priority (10)
+2021-02-18 13:47:23.731 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.749 INFO compile_engine.py:257 Using injective.cpu for nn.bias_add based on highest priority (10)
+2021-02-18 13:47:23.773 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.794 INFO compile_engine.py:257 Using injective.cpu for right_shift based on highest priority (10)
+2021-02-18 13:47:23.815 INFO compile_engine.py:257 Using injective.cpu for cast based on highest priority (10)
+2021-02-18 13:47:23.834 INFO eval.py:107 got result: {'label': array([  4, -21,  17,  22,  18,   4,   7, -13,  -8, -13], dtype=int8)}
+2021-02-18 13:47:23.861 INFO eval.py:107 got result: {'label': array([  2, -19,  17,  21,  20,   3,   4,  -6,  17, -16], dtype=int8)}
+2021-02-18 13:47:23.885 INFO eval.py:107 got result: {'label': array([ -4, -23,   7,   7,  18,  -2,   2,  -2,   2,  -9], dtype=int8)}
+2021-02-18 13:47:23.907 INFO eval.py:107 got result: {'label': array([ -1, -21,   1,   4,  11, -15,   5,   4, -17, -24], dtype=int8)}
+2021-02-18 13:47:23.932 INFO eval.py:107 got result: {'label': array([ -6, -27,   5,   4,  24,   3,   3,  -4,  -5, -14], dtype=int8)}
+2021-02-18 13:47:23.958 INFO eval.py:107 got result: {'label': array([-10, -26,   8,  10,  13, -11,  -8, -12, -14, -22], dtype=int8)}
+2021-02-18 13:47:23.983 INFO eval.py:107 got result: {'label': array([ -1, -32,  15,  12,  17,  -8,  -5, -10,   5, -16], dtype=int8)}
+2021-02-18 13:47:24.005 INFO eval.py:107 got result: {'label': array([  1, -15,  15,   8,  15,  -6,  -1,  -6,  -8, -19], dtype=int8)}
+2021-02-18 13:47:24.030 INFO eval.py:107 got result: {'label': array([  6, -10,  11,   6,  27,   0,  -2, -16, -15,  -6], dtype=int8)}
+2021-02-18 13:47:24.055 INFO eval.py:107 got result: {'label': array([ -7, -21,  14,   2,  16,  -3,  -5, -15,  -3, -17], dtype=int8)}
+2021-02-18 13:47:24.056 INFO eval.py:424 Sample 0 ---->
+2021-02-18 13:47:24.056 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.056 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  +004 -021 +017 +022 +018 +004 +007 -013 -008 -013
+2021-02-18 13:47:24.056 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  +004 -021 +017 +022 +018 +004 +007 -013 -008 -013
+2021-02-18 13:47:24.056 INFO eval.py:424 Sample 1 ---->
+2021-02-18 13:47:24.056 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  +002 -019 +017 +021 +020 +003 +004 -006 +017 -016
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  +002 -019 +017 +021 +020 +003 +004 -006 +017 -016
+2021-02-18 13:47:24.057 INFO eval.py:424 Sample 2 ---->
+2021-02-18 13:47:24.057 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -004 -023 +007 +007 +018 -002 +002 -002 +002 -009
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -004 -023 +007 +007 +018 -002 +002 -002 +002 -009
+2021-02-18 13:47:24.057 INFO eval.py:424 Sample 3 ---->
+2021-02-18 13:47:24.057 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -001 -021 +001 +004 +011 -015 +005 +004 -017 -024
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -001 -021 +001 +004 +011 -015 +005 +004 -017 -024
+2021-02-18 13:47:24.057 INFO eval.py:424 Sample 4 ---->
+2021-02-18 13:47:24.057 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.057 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -006 -027 +005 +004 +024 +003 +003 -004 -005 -014
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -006 -027 +005 +004 +024 +003 +003 -004 -005 -014
+2021-02-18 13:47:24.058 INFO eval.py:424 Sample 5 ---->
+2021-02-18 13:47:24.058 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -010 -026 +008 +010 +013 -011 -008 -012 -014 -022
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -010 -026 +008 +010 +013 -011 -008 -012 -014 -022
+2021-02-18 13:47:24.058 INFO eval.py:424 Sample 6 ---->
+2021-02-18 13:47:24.058 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -001 -032 +015 +012 +017 -008 -005 -010 +005 -016
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -001 -032 +015 +012 +017 -008 -005 -010 +005 -016
+2021-02-18 13:47:24.058 INFO eval.py:424 Sample 7 ---->
+2021-02-18 13:47:24.058 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  +001 -015 +015 +008 +015 -006 -001 -006 -008 -019
+2021-02-18 13:47:24.058 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  +001 -015 +015 +008 +015 -006 -001 -006 -008 -019
+2021-02-18 13:47:24.058 INFO eval.py:424 Sample 8 ---->
+2021-02-18 13:47:24.059 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.059 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  +006 -010 +011 +006 +027 +000 -002 -016 -015 -006
+2021-02-18 13:47:24.059 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  +006 -010 +011 +006 +027 +000 -002 -016 -015 -006
+2021-02-18 13:47:24.059 INFO eval.py:424 Sample 9 ---->
+2021-02-18 13:47:24.059 INFO eval.py:451 model_name  setting   config                                0    1    2    3    4    5    6    7    8    9
+2021-02-18 13:47:24.059 INFO eval.py:458 cifar10_cnn micro_dev data/cifar10-config-validate.json  -007 -021 +014 +002 +016 -003 -005 -015 -003 -017
+2021-02-18 13:47:24.059 INFO eval.py:458 cifar10_cnn interp    data/cifar10-config-validate.json  -007 -021 +014 +002 +016 -003 -005 -015 -003 -017
+gromero@gromero0:~/git/microtvm-blogpost-eval$
